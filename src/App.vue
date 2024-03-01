@@ -27,6 +27,8 @@ function inverter(texto) {
 function saudacao() {
   return `Olá, ${nome}!`
 }
+const menor = '<div style="border-radius:20px; background-color: rgb(202, 59, 59); width: 500px; color:black; height: 30px; margin-top: 15px"><p style="margin-left:150px">maior que 10 é red</p></div>'
+const maior = '<div style="border-radius:20px; background-color: green; width: 500px; color:black; height: 30px; margin-top: 15px;"><p style="margin-left:150px">menor que 10 é verdin </p></div>'
 </script>
 
 <template>
@@ -48,14 +50,17 @@ function saudacao() {
     <button @click="decrementar">Decrementar</button>
     <p>O valor do contador é: {{ contador }}</p>
     <button @click="reiniciar">Reiniciar</button>
-  </div>
+    <div v-if="contador > 10 " v-html="maior" ></div>
+  <div v-else v-html="menor"></div>
+</div>
 </template>
 
 <style scoped>
+
 .info {
-  background-color: rgba(35, 12, 22, 1);
+  background-color: rgb(30, 117, 98);
   padding: 20px 30px;
-  color: rgb(183, 210, 219);
+  color: rgb(238, 243, 245);
   border-radius: 10px;
   margin-right: 10px;
 }
@@ -64,5 +69,21 @@ h1 {
   color: white;
   font-weight: bold;
   font-size: 1.5em;
+  
+}
+button:hover {
+    transform: scale(1.1);
+
+}
+
+button {
+  background-color: cadetblue;
+  height: 40px;
+  margin-left: 10px;
+  color: rgb(250, 250, 250);
+  font-weight: bold;
+  border-radius: 10px;
+  transition: transform .2s;
+
 }
 </style>
